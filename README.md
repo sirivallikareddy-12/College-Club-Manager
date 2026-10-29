@@ -299,3 +299,55 @@ theme and screen-specific text, card, icon, and navigation styling._
 **Status: Partially demonstrated.** Custom screen widgets and a basic
 application theme are implemented and verified. A separately extracted
 reusable component library is not present.
+
+## Experiment 7: Forms and Input Validation
+
+### Aim
+
+To create Flutter forms with input fields and validation.
+
+### Implementation Evidence
+
+The Login screen contains email and password `TextField` widgets. However,
+repository inspection found no `Form`, `GlobalKey<FormState>`,
+`TextFormField`, validator functions, or validation error messages. The
+Profile screen shown below displays stored-looking text only; its Edit Profile
+button currently has an empty callback and does not open an editable form.
+
+### Code Glimpse from `lib/main.dart`
+
+```dart
+TextField(
+  decoration: InputDecoration(
+    labelText: 'Email',
+    border: OutlineInputBorder(),
+  ),
+),
+
+TextField(
+  obscureText: true,
+  decoration: InputDecoration(
+    labelText: 'Password',
+    border: OutlineInputBorder(),
+  ),
+),
+```
+
+### Output
+
+The application provides login input fields and a read-only Profile screen,
+but it does not display validation errors or prevent empty submission.
+
+### Screenshot
+
+![Experiment 7 profile screen without edit form](screenshots/experiments/experiment-07-profile-no-edit-form.png)
+
+_The current Profile screen displays user information and an Edit Profile
+button, but no editable form or validation state is implemented. This image
+documents that limitation; it is not evidence of successful validation._
+
+### Result
+
+**Status: Partially demonstrated.** Input fields exist on the Login screen,
+but Flutter form validation and error handling are not implemented or
+verified.
