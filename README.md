@@ -144,3 +144,51 @@ breakpoint-based responsive behavior._
 **Status: Partially demonstrated.** Flexible width sharing and vertical
 scrolling are present, but `MediaQuery`, `LayoutBuilder`, and responsive
 breakpoints are not implemented or verified in the current source.
+
+## Experiment 4: Navigation Using Navigator and Named Routes
+
+### Aim
+
+To navigate between Flutter screens using `Navigator` and named routes.
+
+### Implementation Evidence
+
+The application uses `Navigator.push` with `MaterialPageRoute` for navigation
+from Login to the main screen, from Clubs to Club Details, and from Events to
+Event Details. `Navigator.pop` is also used to return from the Profile screen.
+Named routes (`routes`, `pushNamed`, or `onGenerateRoute`) are not implemented.
+
+### Code Glimpse from `lib/screens/clubs_screen.dart`
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const ClubDetailsScreen(
+      clubName: 'Coding Club',
+      category: 'Programming & Technology',
+      description:
+          'A community for students interested in programming, DSA and software development.',
+      members: 85,
+      icon: Icons.code,
+    ),
+  ),
+);
+```
+
+### Output
+
+Selecting the Coding Club card opens its Club Details screen. Flutter's
+automatically provided back button returns to the previous screen.
+
+### Screenshot
+
+![Experiment 4 Club Details navigation](screenshots/experiments/experiment-04-navigation-club-details.png)
+
+_The Coding Club details page reached through `Navigator.push` and
+`MaterialPageRoute` from the Clubs screen._
+
+### Result
+
+**Status: Partially demonstrated.** Navigator-based screen navigation is
+implemented and verified, but named-route navigation is not implemented.
