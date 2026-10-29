@@ -351,3 +351,49 @@ documents that limitation; it is not evidence of successful validation._
 **Status: Partially demonstrated.** Input fields exist on the Login screen,
 but Flutter form validation and error handling are not implemented or
 verified.
+
+## Experiment 8: Animations in Flutter
+
+### Aim
+
+To understand and implement animations using Flutter.
+
+### Implementation Evidence
+
+An untracked standalone file, `lib/animations.dart`, defines an
+`AnimationDemo` that changes an `AnimatedOpacity` value from `0.0` to `1.0`.
+It has its own `main()` function and is not imported by the College Club
+Manager application in `lib/main.dart`. No slide animation was found. The
+supplied screenshot shows the application's static Login screen, not the
+standalone animation demo, so animation execution is not verified by this
+image.
+
+### Code Glimpse from the standalone `lib/animations.dart`
+
+```dart
+AnimatedOpacity(
+  opacity: opacity,
+  duration: const Duration(seconds: 2),
+  child: const Text('Welcome!'),
+)
+```
+
+### Output
+
+When run separately, the code is intended to fade the `Welcome!` text from
+transparent to visible over two seconds. This behavior has not been verified
+in the main College Club Manager application.
+
+### Screenshot
+
+![Experiment 8 static Login screen](screenshots/experiments/experiment-08-static-login-screen.png)
+
+_The current College Club Manager Login screen is static. This still image
+does not demonstrate a fade or slide transition and is included to document
+the screen currently used by the application._
+
+### Result
+
+**Status: Not demonstrated in the application.** A standalone, untracked
+`AnimatedOpacity` example exists, but it is not integrated into the app, its
+execution is not shown here, and no slide animation is implemented.
