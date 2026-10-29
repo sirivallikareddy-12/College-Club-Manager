@@ -91,3 +91,56 @@ icons, cards, and bottom navigation using widgets implemented in
 ### Result
 
 Basic Flutter widgets and layout structures were explored.
+
+## Experiment 3: Responsive UI Using MediaQuery and LayoutBuilder
+
+### Aim
+
+To design a responsive user interface that adapts to different screen sizes using `MediaQuery` and `LayoutBuilder`.
+
+### Implementation Evidence
+
+The current Home screen uses `SingleChildScrollView` to allow vertical
+scrolling and `Expanded` widgets to share the available width between its
+summary cards. Repository inspection found no `MediaQuery`, `LayoutBuilder`,
+or explicit responsive breakpoints, so adaptation across different screen
+sizes is not yet verified.
+
+### Code Glimpse from `lib/screens/home_screen.dart`
+
+```dart
+SingleChildScrollView(
+  padding: const EdgeInsets.all(16),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
+        children: [
+          Expanded(child: Card(/* Available Clubs */)),
+          Expanded(child: Card(/* My Clubs */)),
+        ],
+      ),
+    ],
+  ),
+)
+```
+
+### Output
+
+The screenshot records the Home screen on one mobile-sized viewport. It shows
+the two summary cards sharing the available row width and the remaining
+content arranged in a vertically scrollable layout.
+
+### Screenshot
+
+![Experiment 3 mobile layout](screenshots/experiments/experiment-03-mobile-layout.png)
+
+_The College Club Manager Home screen displayed on a mobile-sized viewport.
+This image verifies the current mobile layout only; it does not prove
+breakpoint-based responsive behavior._
+
+### Result
+
+**Status: Partially demonstrated.** Flexible width sharing and vertical
+scrolling are present, but `MediaQuery`, `LayoutBuilder`, and responsive
+breakpoints are not implemented or verified in the current source.
