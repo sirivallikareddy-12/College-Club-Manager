@@ -192,3 +192,58 @@ _The Coding Club details page reached through `Navigator.push` and
 
 **Status: Partially demonstrated.** Navigator-based screen navigation is
 implemented and verified, but named-route navigation is not implemented.
+
+## Experiment 5: Stateful and Stateless Widgets with State Management
+
+### Aim
+
+To understand `StatelessWidget`, `StatefulWidget`, and state updates using `setState()` and Provider.
+
+### Implementation Evidence
+
+`ClubDetailsScreen`, `EventDetailsScreen`, and `MainScreen` are implemented as
+`StatefulWidget` classes. Screens such as `HomeScreen`, `ClubsScreen`, and
+`ProfileScreen` are implemented as `StatelessWidget` classes. On the Club
+Details screen, `setState` toggles the local `isJoined` value, changes the
+button label, and triggers a confirmation `SnackBar`. Provider is not listed
+as a dependency and no Provider-based state management was found.
+
+### Code Glimpse from `lib/screens/club_details_screen.dart`
+
+```dart
+bool isJoined = false;
+
+onPressed: () {
+  setState(() {
+    isJoined = !isJoined;
+  });
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        isJoined
+            ? 'You joined ${widget.clubName}!'
+            : 'You left ${widget.clubName}.',
+      ),
+    ),
+  );
+},
+```
+
+### Output
+
+After the Join Club button is selected, the UI updates the button text to
+`JOINED ✓` and displays the message `You joined Coding Club!`.
+
+### Screenshot
+
+![Experiment 5 setState join result](screenshots/experiments/experiment-05-setstate-joined-club.png)
+
+_The Coding Club details screen after its local state changes: the button
+shows `JOINED ✓` and the confirmation SnackBar is visible._
+
+### Result
+
+**Status: Partially demonstrated.** `StatefulWidget`, `StatelessWidget`, and
+local state updates with `setState` are implemented and verified. Provider is
+not implemented.
