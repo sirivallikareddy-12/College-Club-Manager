@@ -397,3 +397,48 @@ the screen currently used by the application._
 **Status: Not demonstrated in the application.** A standalone, untracked
 `AnimatedOpacity` example exists, but it is not integrated into the app, its
 execution is not shown here, and no slide animation is implemented.
+
+## Experiment 9: Fetching Data from REST APIs
+
+### Aim
+
+To fetch and display data from a REST API in Flutter.
+
+### Implementation Evidence
+
+Repository inspection found no HTTP client dependency, network request,
+response parsing, or asynchronous display of REST data. The event information
+shown by the application is hardcoded in `events_screen.dart` and passed to
+`EventDetailsScreen` through its constructor. Firebase initialization alone
+does not demonstrate REST API integration.
+
+### Code Glimpse from `lib/screens/events_screen.dart`
+
+```dart
+const EventDetailsScreen(
+  eventName: 'Coding Contest',
+  date: '25 September',
+  time: '10:00 AM',
+  location: 'Seminar Hall',
+  description:
+      'A programming contest designed to test problem-solving, logical thinking and coding skills.',
+  icon: Icons.code,
+)
+```
+
+### Output
+
+The Event Details screen displays locally defined values. No evidence shows
+that these values were fetched from an external REST endpoint.
+
+### Screenshot
+
+![Experiment 9 hardcoded event details](screenshots/experiments/experiment-09-hardcoded-event-details.png)
+
+_The Coding Contest details rendered from hardcoded constructor values. This
+screenshot demonstrates the event UI, not REST API integration._
+
+### Result
+
+**Status: Not demonstrated.** An actual HTTP request, parsed response, and UI
+populated from fetched REST data are not implemented or verified.
