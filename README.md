@@ -442,3 +442,49 @@ screenshot demonstrates the event UI, not REST API integration._
 
 **Status: Not demonstrated.** An actual HTTP request, parsed response, and UI
 populated from fetched REST data are not implemented or verified.
+
+## Experiment 10: Unit Testing and Debugging in Flutter
+
+### Aim
+
+To test Flutter UI components and identify errors through debugging.
+
+### Implementation Evidence
+
+The repository contains one Flutter widget test in `test/widget_test.dart`.
+It pumps `CollegeClubManager` and checks that the Login screen displays its
+title, welcome message, input labels, and Login button. This is a widget test,
+not a standalone unit test. The supplied terminal screenshot records one
+passing test. No repository evidence documents a debugging session or a
+specific issue identified and fixed with Flutter debugging tools.
+
+### Code Glimpse from `test/widget_test.dart`
+
+```dart
+testWidgets('Login screen displays correctly', (WidgetTester tester) async {
+  await tester.pumpWidget(const CollegeClubManager());
+  expect(find.text('College Club Manager'), findsOneWidget);
+  expect(find.text('Welcome!'), findsOneWidget);
+  expect(find.text('Email'), findsOneWidget);
+  expect(find.text('Password'), findsOneWidget);
+  expect(find.text('Login'), findsOneWidget);
+});
+```
+
+### Output
+
+The captured `flutter test` run reports `+1: All tests passed!`, confirming
+that the single Login screen widget test passed during that recorded run.
+
+### Screenshot
+
+![Experiment 10 widget test passed](screenshots/experiments/experiment-10-widget-test-passed.png)
+
+_The terminal output from `flutter test` records one successful widget test
+and the final message `All tests passed!`._
+
+### Result
+
+**Status: Partially demonstrated.** A widget test and its passing captured
+result are verified. No standalone unit test or documented debugging and
+issue-fixing evidence is available.
