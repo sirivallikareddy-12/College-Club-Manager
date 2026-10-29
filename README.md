@@ -247,3 +247,55 @@ shows `JOINED ✓` and the confirmation SnackBar is visible._
 **Status: Partially demonstrated.** `StatefulWidget`, `StatelessWidget`, and
 local state updates with `setState` are implemented and verified. Provider is
 not implemented.
+
+## Experiment 6: Custom Widgets and Themes
+
+### Aim
+
+To create reusable custom widgets and apply themes and styles in Flutter.
+
+### Implementation Evidence
+
+The application is divided into custom screen widgets, including
+`HomeScreen`, `ClubsScreen`, `EventsScreen`, and `MainScreen`. The root
+`MaterialApp` applies a `ThemeData` configuration, while individual screens
+use `TextStyle`, `Card`, `CircleAvatar`, `OutlineInputBorder`, and other
+Material styling. No separately extracted reusable component widget was found
+in the current source.
+
+### Code Glimpse from `lib/main.dart` and `lib/screens/home_screen.dart`
+
+```dart
+return MaterialApp(
+  title: 'College Club Manager',
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: const LoginScreen(),
+);
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(/* Home screen UI */);
+  }
+}
+```
+
+### Output
+
+The Home screen displays consistently styled headings, cards, icons, input
+decoration, list tiles, and bottom navigation using Flutter's Material theme.
+
+### Screenshot
+
+![Experiment 6 custom widget and theme](screenshots/experiments/experiment-06-custom-widget-theme.png)
+
+_The custom `HomeScreen` widget rendered with the application's Material
+theme and screen-specific text, card, icon, and navigation styling._
+
+### Result
+
+**Status: Partially demonstrated.** Custom screen widgets and a basic
+application theme are implemented and verified. A separately extracted
+reusable component library is not present.
